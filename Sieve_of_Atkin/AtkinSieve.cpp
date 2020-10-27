@@ -9,7 +9,6 @@
 static bool buildAtkinSieve(boost::dynamic_bitset<>& sieve) {
 	if (&sieve == nullptr || sieve.size() < 2)
 		return false;
-
 	int size = sieve.size() - 1;
 	sieve[2] = true;
 	sieve[3] = true;
@@ -38,7 +37,6 @@ static bool buildAtkinSieve(boost::dynamic_bitset<>& sieve) {
 				sieve[j] = false;
 		}
 	}
-
 	return true;
 }
 
@@ -47,12 +45,10 @@ int main() {
 	int size;
 	std::cin >> size;
 	boost::dynamic_bitset<> sieve(size + 1);
-
 	if (!buildAtkinSieve(sieve)) {
 		std::cout << "It's too small for me to work with, so I'm done";
 		return 1;
 	}
-
 	int answer;
 	while (true) {	// feel free to Alt + F4
 		std::cout << "\nEnter the number to check if it's prime: ";
@@ -65,6 +61,5 @@ int main() {
 		else
 			std::cout << (sieve[answer] ? "It's prime.\n" : "It's not prime.\n");
 	}
-
 	return 0;
 }
